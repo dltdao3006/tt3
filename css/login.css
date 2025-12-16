@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    /* Nền sáng nhẹ nhàng như trong ảnh */
+    background: #f0f4f8; 
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Container chính cho form đăng nhập */
+.login-page {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+/* Card màu trắng chứa nội dung form */
+.form {
+    background: #FFFFFF;
+    padding: 45px 40px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+    border-radius: 12px; /* Bo góc mềm mại */
+}
+
+/* Tiêu đề "Đăng nhập hệ thống" */
+.form h1 {
+    margin: 0 0 30px 0;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Khoảng cách giữa icon và chữ */
+}
+
+/* Ô nhập liệu (Input) */
+.form input {
+    font-family: 'Roboto', sans-serif;
+    outline: 0;
+    background: #f7f9fc; /* Nền xám rất nhạt */
+    width: 100%;
+    border: 1px solid #e1e5eb;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-radius: 6px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.form input:focus {
+    background: #fff;
+    border-color: #4a90e2; /* Viền xanh khi nhập */
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* Nút bấm (Button) */
+.form button {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #3b82f6; /* Màu xanh dương hiện đại */
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.form button:hover {
+    background: #2563eb; /* Màu xanh đậm hơn khi di chuột */
+}
+
+/* Thông báo và liên kết dưới cùng */
+.form .message {
+    margin: 20px 0 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.form .message a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.form .message a:hover {
+    text-decoration: underline;
+}
+
+/* Style cho thông báo lỗi/thành công từ PHP */
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-align: left;
+}
+.alert-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+.alert-success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+/* Ẩn form reset mặc định */
+.reset-form {
+    display: none;
+}

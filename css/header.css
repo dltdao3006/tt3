@@ -1,0 +1,114 @@
+/* --- Global Body & Fonts --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom right, #f4fbfd, #dbeefc);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* --- Header Area --- */
+.header {
+  background: linear-gradient(to right, #e9ecef, #4dabf7);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .logo a {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* --- Top Navigation --- */
+.topnav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dbeaf7;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 32px;
+  align-items: center;
+}
+
+.topnav a {
+  display: block;
+  color: #184e77;
+  padding: 14px 18px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  border-radius: 6px;
+  margin: 4px 6px;
+}
+
+.topnav a:hover {
+  background-color: #e7f5ff;
+  color: #1c7ed6;
+}
+
+.topnav a.icon {
+  display: none;
+  font-size: 20px;
+  color: #228be6;
+  margin-left: auto;
+}
+
+/* --- Alerts / Notifications --- */
+.up_info1,
+.up_info2 {
+  margin: 10px 32px;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 6px;
+  display: none;
+}
+
+.up_info1 {
+  background-color: #ffe3e3;
+  color: #c92a2a;
+  border: 1px solid #ffa8a8;
+}
+
+.up_info2 {
+  background-color: #d3f9d8;
+  color: #2b8a3e;
+  border: 1px solid #8ce99a;
+}
+
+/* --- Responsive Navigation --- */
+@media screen and (max-width: 768px) {
+  .topnav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+  .topnav a {
+    width: 100%;
+    margin: 4px 0;
+    text-align: left;
+  }
+  .topnav a.icon {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .topnav.responsive a:not(.icon) {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}

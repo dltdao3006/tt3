@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap');
+
+/* --- Cấu hình chung --- */
+* { box-sizing: border-box; }
+
+body {
+    background-color: #f3f6f9 !important;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    margin: 0;
+}
+
+section.container {
+    max-width: 1200px !important;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Tiêu đề trang */
+h1 {
+    font-size: 28px !important;
+    color: #1e3a8a;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 30px 0 !important;
+    letter-spacing: 0.5px;
+}
+
+/* --- Nút Mở Modal Lọc --- */
+.form-style-5 {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.form-style-5 button {
+    background-color: #3b82f6; /* Xanh dương */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-style-5 button:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+}
+
+/* --- STYLE CHO MODAL LỌC (Khắc phục lỗi "tè le") --- */
+.modal-content {
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+}
+
+.modal-header {
+    background-color: #fff !important;
+    border-bottom: 1px solid #eef2f6 !important;
+    padding: 20px 25px !important;
+    border-radius: 12px 12px 0 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-title {
+    font-size: 20px !important;
+    color: #1e3a8a !important;
+    font-weight: 700 !important;
+}
+
+.modal-body {
+    padding: 25px !important;
+    background-color: #f8fafc !important; /* Nền modal hơi xám */
+}
+
+/* Thay thế style cho .panel cũ bằng style Card mới */
+.panel {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    border: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.panel-heading {
+    background-color: #f1f5f9;
+    padding: 12px 15px;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+/* Style cho các ô Input trong Modal */
+.panel-body input[type="date"],
+.panel-body input[type="time"],
+.panel-body select,
+.modal-body select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    transition: all 0.2s;
+}
+
+.panel-body label, .modal-body label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 0;
+}
+
+.panel-body input:focus, 
+.panel-body select:focus,
+.modal-body select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Radio button chọn giờ */
+.time {
+    float: right;
+    font-size: 12px;
+}
+.time label {
+    font-weight: normal;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Footer Modal */
+.modal-footer {
+    background-color: #fff !important;
+    border-top: 1px solid #eef2f6 !important;
+    padding: 15px 25px !important;
+    border-radius: 0 0 12px 12px !important;
+}
+
+.btn-success {
+    background-color: #10b981 !important;
+    border: none !important;
+}
+.btn-secondary {
+    background-color: #94a3b8 !important;
+    border: none !important;
+}
+
+/* --- Table & Scrollbar (Giữ nguyên từ code trước) --- */
+.table-responsive {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1e5eb;
+    margin-top: 10px;
+    
+    max-height: 600px;
+    overflow-y: auto !important;
+}
+
+/* Scrollbar */
+.table-responsive::-webkit-scrollbar { width: 6px; height: 6px; }
+.table-responsive::-webkit-scrollbar-track { background: #f1f1f1; }
+.table-responsive::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    margin-bottom: 0;
+    min-width: 800px;
+}
+
+.table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #e0f2fe !important;
+    color: #0c4a6e !important;
+    padding: 16px 15px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 1px solid #bfdbfe;
+    text-align: center;
+}
+
+.table tbody td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-size: 14px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table tbody tr:hover td {
+    background-color: #f8fafc !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    h1 { font-size: 22px !important; }
+    .table-responsive { max-height: 400px; }
+    /* Fix modal trên mobile */
+    .modal-dialog { margin: 10px; }
+    .col-lg-6 { margin-bottom: 15px; }
+}

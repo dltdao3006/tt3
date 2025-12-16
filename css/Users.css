@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap');
+
+/* --- Cấu hình chung --- */
+* { box-sizing: border-box; }
+
+body {
+    background-color: #f3f6f9 !important;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    margin: 0;
+}
+
+main {
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Khung Card --- */
+.card-wrapper {
+    background: #ffffff;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 80, 130, 0.08);
+    border: 1px solid #eef2f6;
+}
+
+h1.page-title {
+    font-size: 26px !important;
+    color: #184e77;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px !important;
+    letter-spacing: 0.5px;
+}
+
+/* --- Khung bảng --- */
+.table-responsive {
+    width: 100%;
+    max-height: 450px;
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+    border-radius: 10px;
+    border: 1px solid #e3f2f9;
+    background: #fff;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f1f1;
+}
+
+.table-responsive::-webkit-scrollbar { width: 6px; height: 6px; }
+.table-responsive::-webkit-scrollbar-track { background: #f1f1f1; }
+.table-responsive::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+/* --- Table Style --- */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+    background-color: #fff;
+    min-width: 600px; /* Min-width để giữ bảng đẹp trên mobile */
+}
+
+/* Header */
+.table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #e3f2f9 !important;
+    color: #184e77 !important;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 16px 15px;
+    border-bottom: 2px solid #d1e9f5;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* --- ĐỊNH DẠNG CỘT (Đã chuyển từ inline style sang đây) --- */
+/* Cột 1: Họ tên (30%) - Căn trái */
+.table th:nth-child(1), 
+.table td:nth-child(1) { 
+    width: 30%; 
+    text-align: left; 
+    padding-left: 20px; 
+}
+
+/* Cột 2: Giới tính (10%) */
+.table th:nth-child(2), 
+.table td:nth-child(2) { width: 10%; }
+
+/* Cột 3: SĐT (20%) */
+.table th:nth-child(3), 
+.table td:nth-child(3) { width: 20%; }
+
+/* Cột 4: Mã thẻ (20%) */
+.table th:nth-child(4), 
+.table td:nth-child(4) { width: 15%; }
+
+/* Cột 5: Nơi làm việc(20%) */
+.table th:nth-child(5), 
+.table td:nth-child(5) { width: 15%; }
+
+/* Cột 6: Ngày tạo (20%) */
+.table th:nth-child(6), 
+.table td:nth-child(6) { width: 20%; }
+
+
+/* Body Cells */
+.table tbody td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Style riêng cho cột tên trong body */
+.table tbody td:first-child { 
+    font-weight: 600;
+    color: #334155;
+}
+
+.table tbody tr:hover { background-color: #f8fbfe; }
+
+/* Badge Mã thẻ */
+.badge-card {
+    background-color: #f0f9ff;
+    color: #0284c7;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 12px;
+    border: 1px solid #e0f2fe;
+    display: inline-block;
+}
+
+/* Responsive Mobile */
+@media screen and (max-width: 768px) {
+    main { padding: 0 10px; }
+    .card-wrapper { margin: 20px auto; padding: 15px; }
+    h1.page-title { font-size: 20px !important; margin-bottom: 15px !important; }
+    
+    .table thead th, .table tbody td {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+    
+    /* Reset padding-left trên mobile cho cân */
+    .table th:nth-child(1), .table td:nth-child(1) { padding-left: 10px; }
+}
