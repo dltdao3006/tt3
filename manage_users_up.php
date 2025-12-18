@@ -4,7 +4,8 @@
         <th>Mã thẻ</th>
         <th>Họ và tên</th>
         <th>Giới tính</th>
-        <th>Số điện thoại</th>
+        <th>Mã nhân viên</th>
+        <th>Phòng Ban</th>
         <th>Ngày tạo</th>
       </tr>
     </thead>
@@ -35,6 +36,7 @@
                   <TD><?php echo $row['username'];?></TD>
                   <TD><?php echo $row['gender'];?></TD>
                   <TD><?php echo $row['serialnumber'];?></TD>
+                  <TD><?php echo $row['department'];?></TD>
                   <TD><?php echo $row['user_date'];?></TD>
                   </TR>
     <?php

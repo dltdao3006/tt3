@@ -2,6 +2,22 @@
 session_start();
 if (!isset($_SESSION['Admin-name'])) {
   header("location: login.php");
+  exit();
+}
+
+// Lấy quyền hạn, mặc định là 3 (User) nếu không có
+$role = isset($_SESSION['admin_role']) ? $_SESSION['admin_role'] : 3;
+
+// 1. KIỂM TRA QUYỀN TRUY CẬP
+// Nếu là User thường (3) -> Đuổi về trang chủ
+if ($role == 3) {
+    header("location: index.php");
+    exit();
+}
+// Nếu không phải Admin (1) cũng không phải Mod (2) -> Chặn
+if ($role > 3) {
+    echo "Bạn không có quyền truy cập trang này";
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -10,6 +26,7 @@ if (!isset($_SESSION['Admin-name'])) {
   <title>Quản lý thiết bị</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" type="text/css" href="css/devices.css"/>
 
   <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
@@ -25,12 +42,13 @@ if (!isset($_SESSION['Admin-name'])) {
   </script>
   <script>
     $(document).ready(function(){
+        // Load danh sách thiết bị
         $.ajax({
             url: "dev_up.php",
             type: 'POST',
             data: { 'dev_up': 1 }
-          }).done(function(data) {
-          $('#devices').html(data);
+            }).done(function(data) {
+            $('#devices').html(data);
         });
     });
   </script>
@@ -47,14 +65,19 @@ if (!isset($_SESSION['Admin-name'])) {
             
             <div class="card-header">
                 <h3>Danh sách thiết bị</h3>
+                
+                <?php if ($role == 1) { ?>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#new-device">
-                    <i class="fa fa-plus-circle"></i> Thiết bị mới
+                    <i class="glyphicon glyphicon-plus-sign"></i> Thiết bị mới
                 </button>
+                <?php } ?>
+                
             </div>
 
             <div id="devices"></div>
         </div>
 
+    <?php if ($role == 1) { ?>
     <div class="modal fade" id="new-device" tabindex="-1" role="dialog" aria-labelledby="New Device" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -64,6 +87,7 @@ if (!isset($_SESSION['Admin-name'])) {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          
           <form action="" method="POST" enctype="multipart/form-data">
             <div class="modal-body">
               <label for="dev_name"><b>Tên thiết bị:</b></label>
@@ -75,10 +99,13 @@ if (!isset($_SESSION['Admin-name'])) {
               <button type="button" name="dev_add" id="dev_add" class="btn btn-success">Lưu thiết bị</button>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
             </div>
-        </form>
+          </form>
+          
         </div>
       </div>
     </div>
+    <?php } // Kết thúc IF check admin ?>
+    
     </section>
 </main>
 </body>

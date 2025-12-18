@@ -56,9 +56,18 @@
 ?>
 <div class="topnav" id="myTopnav">
 	<a href="index.php">Nhân viên</a>
-    <a href="ManageUsers.php">Quản lý nhân viên</a>
     <a href="UsersLog.php">Nhật ký chấm công</a>
-    <a href="devices.php">Thiết bị</a>
+    <?php 
+    // Chỉ Admin và Mod mới thấy menu Quản lý nhân viên
+    if (isset($_SESSION['admin_role']) && $_SESSION['admin_role'] <= 2) { 
+        echo '<a href="ManageUsers.php">Manage Users</a>';
+    }
+    
+    // Chỉ Admin mới thấy menu Thiết bị
+    if (isset($_SESSION['admin_role']) && $_SESSION['admin_role'] <=2 ) { 
+        echo '<a href="devices.php">Manage Devices</a>';
+    }
+    ?>
     <?php  
     	if (isset($_SESSION['Admin-name'])) {
     		echo '<a href="#" data-toggle="modal" data-target="#admin-account">'.$_SESSION['Admin-name'].'</a>';

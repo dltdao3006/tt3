@@ -2,6 +2,13 @@
 session_start();
 require('connectDB.php');
 
+if (isset($_POST['dev_add']) || isset($_POST['dev_del'])) {
+    // Nếu không phải Admin (Role 1) mà cố tình gửi lệnh Thêm/Xóa
+    if ($_SESSION['admin_role'] != 1) {
+        echo "Bạn không có quyền thực hiện chức năng này!";
+        exit();
+    }
+}
 if (isset($_POST['dev_add'])) {
 
     $dev_name = $_POST['dev_name'];

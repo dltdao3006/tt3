@@ -52,7 +52,10 @@ if (!isset($_SESSION['Admin-name'])) {
                     <input type="text" name="name" id="name" placeholder="Tên nhân viên..." required>
                 </div>
                 <div class="input-group">
-                    <input type="text" name="number" id="number" placeholder="Số điện thoại..." required>
+                    <input type="text" name="number" id="number" placeholder="Mã nhân viên.." required>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="department" id="department" placeholder="Phòng ban..." required>
                 </div>
                 <div class="input-group">
                     <input type="email" name="email" id="email" placeholder="Email nhân viên..." required>
@@ -66,7 +69,7 @@ if (!isset($_SESSION['Admin-name'])) {
 
                 <div class="input-group">
                     <select class="dev_sel" name="dev_sel" id="dev_sel">
-                      <option value="0">All Departments</option>
+                      <option value="0">Nơi làm việc</option>
                       <?php
                         require'connectDB.php';
                         $sql = "SELECT * FROM devices ORDER BY device_name ASC";
@@ -79,6 +82,16 @@ if (!isset($_SESSION['Admin-name'])) {
                             }
                         }
                       ?>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Quyền hệ thống:</label>
+                    <select name="user_role" id="user_role">
+                        <option value="3">User thường (Xem công)</option>
+                        <?php if ($_SESSION['admin_role'] == 1) { // Chỉ Admin mới thấy 2 dòng này ?>
+                            <option value="2">Quản lý (Mod)</option>
+                            <option value="1">Admin (Toàn quyền)</option>
+                        <?php } ?>
                     </select>
                 </div>
 

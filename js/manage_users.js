@@ -20,6 +20,7 @@ $(document).ready(function(){
         'name': name,
         'number': number,
         'email': email,
+        'department': department,
         'dev_uid': dev_uid,
         'gender': gender,
       },
@@ -30,7 +31,7 @@ $(document).ready(function(){
           $('#name').val('');
           $('#number').val('');
           $('#email').val('');
-
+          $('#department').val('');
           $('#dev_sel').val('0');
           $('.alert_user').fadeIn(500);
           $('.alert_user').html('<p class="alert alert-success">Nhân viên mới được thêm thành công</p>');
@@ -59,6 +60,7 @@ $(document).ready(function(){
     var name = $('#name').val();
     var number = $('#number').val();
     var email = $('#email').val();
+    var department = $('#department').val();
     //Additional Info
     var dev_uid = $('#dev_uid').val();
     var gender = $(".gender:checked").val();
@@ -73,6 +75,7 @@ $(document).ready(function(){
         'name': name,
         'number': number,
         'email': email,
+        'department': department,
         'dev_uid': dev_uid,
         'gender': gender,
       },
@@ -83,6 +86,7 @@ $(document).ready(function(){
           $('#name').val('');
           $('#number').val('');
           $('#email').val('');
+          $('#department').val('');
 
           $('#dev_sel').val('0');
           $('.alert_user').fadeIn(500);
@@ -126,7 +130,7 @@ $(document).ready(function(){
               $('#name').val('');
               $('#number').val('');
               $('#email').val('');
-
+              $('#department').val('');
               $('#dev_sel').val('0');
               $('.alert_user').fadeIn(500);
               $('.alert_user').html('<p class="alert alert-success">Nhân viên này được xóa thành công!</p>');
@@ -192,6 +196,9 @@ $(document).ready(function(){
         var user_email = {
           User_email : []
         };
+        var user_department = {
+          User_department : []
+        };
         var user_dev = {
           User_dev : []
         };
@@ -206,6 +213,7 @@ $(document).ready(function(){
             user_name.User_name.push(response[i].username);
             user_on.User_on.push(response[i].serialnumber);
             user_email.User_email.push(response[i].email);
+            user_department.User_department.push(response[i].department);
             user_dev.User_dev.push(response[i].device_uid);
             user_gender.User_gender.push(response[i].gender);
         }
@@ -216,6 +224,7 @@ $(document).ready(function(){
         $('#name').val(user_name.User_name);
         $('#number').val(user_on.User_on);
         $('#email').val(user_email.User_email);
+        $('#department').val(user_department.User_department);
         $('#dev_sel').val(user_dev.User_dev);
 
         if (user_gender.User_gender == 'Nữ'){

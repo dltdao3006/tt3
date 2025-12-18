@@ -55,7 +55,7 @@ date_default_timezone_set('Asia/Jakarta');
           }
 
           // Lọc theo phòng ban (device_uid)
-          if (!empty($_POST['dev_uid']) && $_POST['dev_uid'] != 0) {
+          if (!empty($_POST['dev_uid']) && $_POST['dev_uid'] !== '0') {
               $dev_uid = mysqli_real_escape_string($conn, $_POST['dev_uid']);
               $searchArr[] = "device_uid='$dev_uid'";
           }

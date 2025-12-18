@@ -9,8 +9,16 @@ if (isset($_POST['Add'])) {
     $Uname = $_POST['name'];
     $Number = $_POST['number'];
     $Email = $_POST['email'];
+    $Department = $_POST['department'];
     $dev_uid = $_POST['dev_uid'];
     $Gender = $_POST['gender'];
+    $user_role = isset($_POST['user_role']) ? intval($_POST['user_role']) : 3;
+
+    if ($_SESSION['admin_role'] != 1) {
+        if ($user_role < 3) {
+            $user_role = 3; 
+        }
+    }
     
     //check if there any selected user
     $sql = "SELECT add_card FROM users WHERE id=?";
@@ -57,14 +65,14 @@ if (isset($_POST['Add'])) {
                                     $dev_name = "All";
                                 }
                             }
-                            $sql="UPDATE users SET username=?, serialnumber=?, gender=?, email=?, user_date=CURDATE(), device_uid=?, device_dep=?, add_card=1 WHERE id=?";
+                            $sql="UPDATE users SET username=?, serialnumber=?, gender=?, email=?, department=?, user_date=CURDATE(), device_uid=?, device_dep=?, add_card=1 WHERE id=?";
                             $result = mysqli_stmt_init($conn);
                             if (!mysqli_stmt_prepare($result, $sql)) {
                                 echo "SQL_Error_select_Fingerprint";
                                 exit();
                             }
                             else{
-                                mysqli_stmt_bind_param($result, "ssssssi", $Uname, $Number, $Gender, $Email, $dev_uid, $dev_name, $user_id );
+                                mysqli_stmt_bind_param($result, "sssssssi", $Uname, $Number, $Gender, $Email, $Department, $dev_uid, $dev_name, $user_id );
                                 mysqli_stmt_execute($result);
 
                                 echo 1;
@@ -100,6 +108,7 @@ if (isset($_POST['Update'])) {
     $Uname = $_POST['name'];
     $Number = $_POST['number'];
     $Email = $_POST['email'];
+    $Department = $_POST['department'];
     $dev_uid = $_POST['dev_uid'];
     $Gender = $_POST['gender'];
 
@@ -158,14 +167,14 @@ if (isset($_POST['Update'])) {
                                     
                             if (!empty($Uname) && !empty($Email)) {
 
-                                $sql="UPDATE users SET username=?, serialnumber=?, gender=?, email=?, device_uid=?, device_dep=? WHERE id=?";
+                                $sql="UPDATE users SET username=?, serialnumber=?, gender=?, email=?, department=?, device_uid=?, device_dep=? WHERE id=?";
                                 $result = mysqli_stmt_init($conn);
                                 if (!mysqli_stmt_prepare($result, $sql)) {
                                     echo "SQL_Error_select_Card";
                                     exit();
                                 }
                                 else{
-                                    mysqli_stmt_bind_param($result, "ssssssi", $Uname, $Number, $Gender, $Email, $dev_uid, $dev_name, $user_id );
+                                    mysqli_stmt_bind_param($result, "sssssssi", $Uname, $Number, $Gender, $Email, $Department, $dev_uid, $dev_name, $user_id );
                                     mysqli_stmt_execute($result);
 
                                     echo 1;
